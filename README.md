@@ -93,16 +93,15 @@ scp [LOCAL_PATH]/spinnaker-1.27.0.48-Ubuntu18.04-arm64-pkg.tar.gz ubuntu@[IP_ADR
 scp [LOCAL_PATH]/spinnaker_python-1.27.0.48-Ubuntu18.04-cp37-cp37m-linux_aarch64.tar.gz ubuntu@[IP_ADRESS]:/home/ubuntu/Downloads
 sh install_spinnaker.sh
 ```
-6. Begin acquiring images.
+6. Begin acquiring images. Confirm the camera is plugged into the black USB2.0 port.
 ```
 sudo sh -c 'echo 256 > /sys/module/usbcore/parameters/usbfs_memory_mb'
 sudo reboot
 sh spinnaker_acquisition.sh < spinnaker_acquisition_inputs.sh
 ```
 
-
-TODO:
-End with an example of getting some data out of the system or using it for a little demo
+![Example Camera Acquisition Output 1](images/example_acquisition1.png)
+![Example Camera Acquisition Output 2](images/example_acquisition2.png)
 
 ## Errors
 
