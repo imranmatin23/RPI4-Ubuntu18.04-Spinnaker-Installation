@@ -53,7 +53,7 @@ mkdir $img_path
 cd $img_path
 
 # activate the conda environment
-. ~/anaconda3/etc/profile.d/conda.sh
+. ~/archiconda3/etc/profile.d/conda.sh
 conda activate ${conda_env}
 
 # Run python script to acquire images

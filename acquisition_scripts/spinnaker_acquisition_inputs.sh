@@ -1,2 +1,3 @@
-/home/imran/Desktop/blackfly
-/home/imran/Desktop/python37-spinnaker/Examples/Python3
+/home/ubuntu/Desktop/blackfly
+/home/ubuntu/Desktop/python37-spinnaker/Examples/Python3
+

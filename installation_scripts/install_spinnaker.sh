@@ -94,7 +94,7 @@ sudo apt-get install libavcodec57 libavformat57 libswscale4 libswresample2 libav
 printf "\nInstall Spinnaker...\n"
 printf "Enter 'yes' to all prompts, and add this user to the usergroup...\n\n"
 cd $unzip_loc/${spinnaker_folder}/
-sudo sh $unzip_loc/${spinnaker_folder}/install_spinnaker.sh
+sudo sh $unzip_loc/${spinnaker_folder}/install_spinnaker_arm.sh
 
 printf "\nSpinnaker is installed. Now installing Spinnaker Python wrapper.\n"
 sleep 5
@@ -135,6 +135,3 @@ printf "\nAll dependencies installed. Thank you, goodbye."
 printf "\nAnaconda, the conda environment for Spinnaker, and Spinnaker have been installed successfully...."
 printf "\nPlease begin acquiring images..."
 printf "\nThank you, goodbye.\n"
-printf "\nThe system will now reboot in 10 seconds for changes to take effect...\n"
-sleep 10
-sudo reboot

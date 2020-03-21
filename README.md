@@ -51,9 +51,9 @@ ps aux | grep -i apt
 ```
 sudo apt update -y && sudo apt upgrade -y
 ```
-12. Install Ubuntu Desktop (Optional)
+12. Install Ubuntu Desktop
 ```
-sudo apt-get install ubuntu-desktop
+sudo apt-get install ubuntu-desktop -y
 reboot
 ```
 
@@ -62,7 +62,7 @@ reboot
 
 A step by step guide that tell you how to install Spinnaker.
 
-1. Download this repository.
+1. Download this repository and Archiconda installation script.
 ```
 mkdir ~/Desktop
 cd ~/Desktop
@@ -95,63 +95,52 @@ sh install_spinnaker.sh
 ```
 6. Begin acquiring images.
 ```
-sh spinnaker_acquisition.sh
+sudo sh -c 'echo 256 > /sys/module/usbcore/parameters/usbfs_memory_mb'
+sudo reboot
+sh spinnaker_acquisition.sh < spinnaker_acquisition_inputs.sh
 ```
 
 
+TODO:
 End with an example of getting some data out of the system or using it for a little demo
 
-## Running the tests
+## Errors
 
-Explain how to run the automated tests for this system
+1. If cannot SSH into SBC:
+    - remove the corresponding old key from PATH/.ssh/known_hosts
+2. To handle memory issue and "Error: Spinnaker: Could not Start Acquisition [-1010]" error run this command (must be done every time, can set it indefinitely by using README steps):
+    - $ sudo sh -c 'echo 256 > /sys/module/usbcore/parameters/usbfs_memory_mb'
+3. Don’t use sudo if not necessary
 
-### Break down into end to end tests
+### System Notes
 
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
+1. RPI4 architecture is arm64 and aarch64
+2. When the camera is active it uses 3 Watts. (?CONFIRM?)
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* Ubuntu - The OS used
+* Archiconda - Used to handle Python management
+* Spinnaker - Used to get Spinnaker SDK
+* [EasyPySpin](https://github.com/elerac/EasyPySpin) - Used to set camera settings using OpenCV
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+* None
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+* None
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **Imran Matin** - [Github Profile](https://github.com/imranmatin23)
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+* None
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* None
 
