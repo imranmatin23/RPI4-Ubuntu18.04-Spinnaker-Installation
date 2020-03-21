@@ -12,8 +12,8 @@ printf "\nActivate and test installation...\n"
 conda list
 
 # Update conda and Anaconda
-printf "Update conda utility and Anaconda distribution...\n"
-conda update conda -y && conda update anaconda -y
+printf "Update conda utility...\n"
+conda update conda -y
 
 # get user input for environment name
 # printf "\nWhat would you like the environment to be called? For example: 'spinnaker_py37'?\n"
