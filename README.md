@@ -41,7 +41,7 @@ ip address
 ```
 8. Login on your remote computer.
 ```
-ssh -X ubuntu@[IP_ADDRESS]
+ssh -X [USER]@[IP_ADDRESS]
 ```
 10. Check if system is running other apt update processes.
 ```
@@ -69,14 +69,14 @@ cd ~/Desktop
 git clone https://github.com/imranmatin23/RPI4-Ubuntu18.04-Spinnaker-Installation.git
 mkdir ~/Downloads
 cd ~/Downloads
-scp [LOCAL_PATH]/Archiconda3-0.2.3-Linux-aarch64.sh ubuntu@[IP_ADRESS]:/home/ubuntu/Downloads 
+scp [LOCAL_PATH]/Archiconda3-0.2.3-Linux-aarch64.sh [USER]@[IP_ADRESS]:/home/[USER]/Downloads 
 ```
 2. On line 2 of the Archiconda script, replace “#” with a blank line.
 3. Install Archiconda and follow onscreen instructions. Exit out of SSH session when complete. Activate Archiconda.
 ```
 sh Archiconda3-0.2.3-Linux-aarch64.sh
 exit
-ssh -X ubuntu@[IP_ADDRESS]
+ssh -X [USER]@[IP_ADDRESS]
 echo "conda activate" >> ~/.bashrc
 . ~/.bashrc
 conda activate
@@ -89,8 +89,8 @@ conda activate spinnaker_py37
 ```
 5. Install Spinnaker and follow onscreen instructions.
 ```
-scp [LOCAL_PATH]/spinnaker-1.27.0.48-Ubuntu18.04-arm64-pkg.tar.gz ubuntu@[IP_ADRESS]:/home/ubuntu/Downloads
-scp [LOCAL_PATH]/spinnaker_python-1.27.0.48-Ubuntu18.04-cp37-cp37m-linux_aarch64.tar.gz ubuntu@[IP_ADRESS]:/home/ubuntu/Downloads
+scp [LOCAL_PATH]/spinnaker-1.27.0.48-Ubuntu18.04-arm64-pkg.tar.gz [USER]@[IP_ADDRESS]:/home/[USER]/Downloads
+scp [LOCAL_PATH]/spinnaker_python-1.27.0.48-Ubuntu18.04-cp37-cp37m-linux_aarch64.tar.gz [USER]@[IP_ADDRESS]:/home/[USER]/Downloads
 sh install_spinnaker.sh
 ```
 6. Begin acquiring images. Confirm the camera is plugged into the black USB2.0 port.
