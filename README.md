@@ -66,7 +66,7 @@ A step by step guide that tell you how to install Spinnaker.
 ```
 mkdir ~/Desktop
 cd ~/Desktop
-git clone https://github.com/imranmatin23/MPL-Research.git
+git clone https://github.com/imranmatin23/RPI4-Ubuntu18.04-Spinnaker-Installation.git
 mkdir ~/Downloads
 cd ~/Downloads
 scp [LOCAL_PATH]/Archiconda3-0.2.3-Linux-aarch64.sh ubuntu@[IP_ADRESS]:/home/ubuntu/Downloads 
