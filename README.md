@@ -101,6 +101,25 @@ sudo sh -c 'echo 256 > /sys/module/usbcore/parameters/usbfs_memory_mb'
 conda activate spinnaker_py37
 sh spinnaker_acquisition.sh < spinnaker_acquisition_inputs.txt
 ```
+7. Install uhubctl to control USB port power.
+```
+cd ~/Desktop
+sudo apt-get install libusb-1.0-0-dev -y
+git clone https://github.com/mvp/uhubctl
+cd uhubctl
+make
+```
+8. To acquire images multiple times, you must power cycle the camera after each acquisition.
+```
+# Shows all hubs and ports
+sudo ./uhubctl
+# Turns off port [PORT_NUMBER] on hub 1-1
+sudo ./uhubctl -l 1-1 -p [PORT_NUMBER] -a off
+# Turns on port [PORT_NUMBER] on hub 1-1
+sudo ./uhubctl -l 1-1 -p [PORT_NUMBER] -a on
+# Prints status of [PORT_NUMBER] on hub 1-1
+sudo ./uhubctl -l 1-1 -p [PORT_NUMBER]
+```
 
 ![Example Camera Acquisition Output 1](images/example_acquisition1.png)
 ![Example Camera Acquisition Output 2](images/example_acquisition2.png)
@@ -112,6 +131,7 @@ sh spinnaker_acquisition.sh < spinnaker_acquisition_inputs.txt
 2. To handle memory issue and "Error: Spinnaker: Could not Start Acquisition [-1010]" error run this command (must be done every time, can set it indefinitely by using README steps):
     - $ sudo sh -c 'echo 256 > /sys/module/usbcore/parameters/usbfs_memory_mb'
 3. Don’t use sudo if not necessary
+4. Need to power cycle camera after each acquisition burst.
 
 ### System Notes
 
@@ -120,10 +140,11 @@ sh spinnaker_acquisition.sh < spinnaker_acquisition_inputs.txt
 
 ## Built With
 
-* Ubuntu - The OS used
-* Archiconda - Used to handle Python management
-* Spinnaker - Used to get Spinnaker SDK
-* [EasyPySpin](https://github.com/elerac/EasyPySpin) - Used to set camera settings using OpenCV
+* Ubuntu - The OS used.
+* Archiconda - Used to handle Python management.
+* Spinnaker - Used to get Spinnaker SDK.
+* [EasyPySpin](https://github.com/elerac/EasyPySpin) - Used to set camera settings using OpenCV.
+* [uhubctl](https://github.com/mvp/uhubctl#raspberry-pi-4b) - Used to power cycle camera after acquisition.
 
 ## Contributing
 
